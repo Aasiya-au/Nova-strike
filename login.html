@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Log in | Nova Strike</title>
+<meta name="description" content="Nova Strike: a 3D arcade space shooter in your browser.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Exo+2:wght@400;600&display=swap">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header id="site-header"></header>
+<main id="main" class="auth-wrap">
+  <section class="panel auth-card">
+    <h1>Log in</h1>
+    <div id="form-message" aria-live="polite"></div>
+    <form id="login-form" novalidate>
+      <div class="field"><label for="email">Email</label>
+        <input id="email" type="email" autocomplete="email" required aria-describedby="email-error"><p class="field-error" id="email-error"></p></div>
+      <div class="field"><label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password" required aria-describedby="password-error"><p class="field-error" id="password-error"></p></div>
+      <p class="hint"><a href="forgot-password.html">Forgot your password?</a></p>
+      <button class="btn btn-primary" type="submit" id="submit-btn">Log in</button>
+    </form>
+    <p class="auth-alt">New pilot? <a href="signup.html">Create an account</a></p>
+  </section>
+</main>
+<script type="module" src="js/pages/login.js"></script>
+</body>
+</html>

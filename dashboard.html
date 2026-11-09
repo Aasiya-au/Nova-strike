@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard | Nova Strike</title>
+<meta name="description" content="Nova Strike: a 3D arcade space shooter in your browser.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Exo+2:wght@400;600&display=swap">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header id="site-header"></header>
+<main id="main" class="stack">
+  <div id="page-message" aria-live="polite"></div>
+  <section class="panel profile-head" aria-labelledby="pilot-name">
+    <div class="avatar" id="avatar" aria-hidden="true">?</div>
+    <div><p class="muted" style="margin:0" id="member-since">Welcome back, pilot</p><h1 id="pilot-name">Loading…</h1></div>
+    <a class="btn btn-ghost" href="profile.html" style="margin-left:auto">View profile</a>
+  </section>
+  <section aria-labelledby="h-levels"><h2 id="h-levels">Missions</h2><div class="grid grid-levels" id="levels"><p class="muted">Loading…</p></div></section>
+  <section aria-labelledby="h-stats"><h2 id="h-stats">Your statistics</h2><div class="grid grid-stats" id="stats"></div></section>
+  <section class="panel" aria-labelledby="h-history"><h2 id="h-history">Your recent runs</h2><div class="table-wrap" id="history"><p class="muted">Loading…</p></div></section>
+  <section aria-labelledby="h-ach"><h2 id="h-ach">Your achievements</h2><ul class="grid grid-ach" id="achievements" style="list-style:none;padding:0;margin:0"></ul></section>
+  <section class="panel" aria-labelledby="h-board">
+    <h2 id="h-board">Public leaderboard</h2>
+    <p class="muted" id="board-note"></p>
+    <div class="field" style="max-width:300px"><label for="board-level">Ranking</label><select id="board-level"></select></div>
+    <div id="board-message" aria-live="polite"></div>
+    <div class="table-wrap" id="board"></div>
+  </section>
+</main>
+<script type="module" src="js/pages/dashboard.js"></script>
+</body>
+</html>

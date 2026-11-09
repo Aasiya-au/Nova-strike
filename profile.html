@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profile | Nova Strike</title>
+<meta name="description" content="Nova Strike: a 3D arcade space shooter in your browser.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Exo+2:wght@400;600&display=swap">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header id="site-header"></header>
+<main id="main" class="stack">
+  <div id="page-message" aria-live="polite"></div>
+  <section class="panel" aria-labelledby="h-info">
+    <div class="profile-head"><div class="avatar" id="avatar" aria-hidden="true">?</div><div><h1 id="h-info">Profile</h1><p class="muted" id="member-since" style="margin:0"></p></div></div>
+    <form id="profile-form" novalidate style="margin-top:1.4rem;max-width:460px">
+      <div class="field"><label for="email">Email (private, only you can see it)</label><input id="email" type="email" readonly aria-readonly="true"></div>
+      <div class="field"><label for="display-name">Display name (public)</label>
+        <input id="display-name" type="text" maxlength="80" required aria-describedby="display-name-error"><p class="field-error" id="display-name-error"></p></div>
+      <div class="btn-row"><button class="btn btn-primary" type="submit" id="submit-btn">Save changes</button>
+        <button class="btn btn-ghost" type="button" id="logout-btn">Log out</button></div>
+    </form>
+  </section>
+  <section class="panel" aria-labelledby="h-privacy">
+    <h2 id="h-privacy">Leaderboard privacy</h2>
+    <p class="muted">When this is on, other players can see your display name, scores and best times on the public leaderboard. Your email and detailed history always stay private.</p>
+    <label class="check"><input type="checkbox" id="is-public"> Show me on the public leaderboard</label>
+  </section>
+  <section aria-labelledby="h-stats"><h2 id="h-stats">Your statistics</h2><div class="grid grid-stats" id="stats"></div></section>
+  <section aria-labelledby="h-ach"><h2 id="h-ach">Achievements</h2><ul class="grid grid-ach" id="achievements" style="list-style:none;padding:0;margin:0"></ul></section>
+</main>
+<script type="module" src="js/pages/profile.js"></script>
+</body>
+</html>

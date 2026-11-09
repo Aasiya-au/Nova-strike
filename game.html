@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Play | Nova Strike</title>
+<meta name="description" content="Nova Strike: a 3D arcade space shooter in your browser.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Exo+2:wght@400;600&display=swap">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/game.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
+</head>
+<body class="game-page">
+<a class="skip-link" href="#game-wrap">Skip to game</a>
+<header id="site-header"></header>
+<main class="game-main" id="main">
+  <div id="game-wrap" data-state="boot">
+    <canvas id="game-canvas" aria-label="Game view"></canvas>
+    <div id="crosshair" aria-hidden="true"></div>
+    <div class="touch-ui">
+      <div class="touch-stick" id="touch-stick" role="group" aria-label="Movement stick"><div class="touch-knob" id="touch-knob"></div></div>
+      <button class="touch-fire" id="touch-fire" type="button" aria-label="Fire">FIRE</button>
+    </div>
+    <div class="hud">
+      <div class="hud-top">
+        <div class="hud-stats" id="hud-stats" role="group" aria-label="Game stats"></div>
+        <div class="hud-level" id="level-name">Loading…</div>
+        <div class="hud-buttons"><button class="btn btn-ghost" id="btn-mute" type="button" aria-pressed="false">Sound on</button>
+          <button class="btn btn-ghost" id="btn-pause" type="button" aria-label="Pause game">Pause</button></div>
+      </div>
+    </div>
+    <div class="wave-banner" id="wave-banner" role="status" aria-live="polite"></div>
+    <div id="game-message" style="position:absolute;top:4.5rem;left:1rem;right:1rem;z-index:6" aria-live="polite"></div>
+
+    <section class="overlay hidden" id="overlay-menu" aria-labelledby="menu-title">
+      <div class="panel overlay-card menu-card">
+        <h2 id="menu-title">Choose your mission</h2>
+        <ul class="menu-levels" id="menu-levels"></ul>
+        <a class="btn btn-ghost" href="dashboard.html">Back to dashboard</a>
+      </div>
+    </section>
+
+    <section class="overlay hidden" id="overlay-start" aria-labelledby="start-title">
+      <div class="panel overlay-card">
+        <h2 id="start-title">Ready for launch</h2>
+        <p id="start-level" style="margin:0"></p>
+        <p class="muted" id="start-info"></p>
+        <ul class="keys" id="start-tips" aria-label="Tips"></ul>
+        <ul class="keys" aria-label="Controls">
+          <li><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> or arrow keys: fly</li>
+          <li>Mouse: aim. The crosshair turns red on a locked target.</li>
+          <li><kbd>Space</kbd> or left click: fire. <kbd>P</kbd> or <kbd>Esc</kbd>: pause</li>
+          <li>Touch: left stick flies, drag to aim, FIRE button shoots</li>
+        </ul>
+        <div class="btn-row" style="justify-content:center"><button class="btn btn-primary" id="btn-start" type="button">Launch</button>
+          <a class="btn btn-ghost" href="game.html">Main menu</a><a class="btn btn-ghost" href="dashboard.html">Dashboard</a></div>
+      </div>
+    </section>
+
+    <section class="overlay hidden" id="overlay-pause" aria-labelledby="pause-title">
+      <div class="panel overlay-card">
+        <h2 id="pause-title">Paused</h2>
+        <p class="muted">Restarting or leaving discards this run.</p>
+        <div class="btn-row" style="justify-content:center"><button class="btn btn-primary" id="btn-resume" type="button">Resume</button>
+          <button class="btn" id="btn-restart-pause" type="button">Restart level</button>
+          <a class="btn btn-ghost" href="game.html">Main menu</a><a class="btn btn-ghost" href="dashboard.html">Return to dashboard</a></div>
+      </div>
+    </section>
+
+    <section class="overlay hidden" id="overlay-result" aria-labelledby="result-title" data-kind="">
+      <div class="panel overlay-card">
+        <h2 id="result-title"></h2>
+        <p class="muted" id="result-lead"></p>
+        <dl id="result-rows"></dl>
+        <div id="result-save" aria-live="polite"></div>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn-primary hidden" id="btn-next" href="#" aria-disabled="true" tabindex="-1">Next level</a>
+          <button class="btn" id="btn-restart" type="button">Replay level</button>
+          <button class="btn btn-primary" id="btn-retry-save" type="button" hidden>Retry saving</button>
+          <a class="btn btn-ghost" href="game.html">Main menu</a><a class="btn btn-ghost" href="dashboard.html">Dashboard</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+<script type="module" src="js/game/main.js"></script>
+</body>
+</html>
